@@ -7,7 +7,7 @@ This project aims to illustrate object-oriented principles, including inheritanc
 ## Usage
 1. Ensure you are in the correct directory of the sub-project.
 2. Run ```javac src/*.java -d bin``` to compile the code.
-3. Run ```java App -cp bin``` to start the program.
+3. Run ```java -cp bin App``` to start the program.
 4. Enjoy the simplicity of this program.
 
 ## Example
