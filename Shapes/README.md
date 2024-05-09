@@ -11,10 +11,10 @@ This project aims to illustrate object-oriented principles, including inheritanc
 4. Enjoy the simplicity of this program.
 
 ## Example
-Program execution
+Program execution <br>
 ![](./example.png)
 
-UML Diagram
+UML Diagram <br>
 ![](./UML.png)
 
 ## Note
