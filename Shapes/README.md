@@ -11,7 +11,11 @@ This project aims to illustrate object-oriented principles, including inheritanc
 4. Enjoy the simplicity of this program.
 
 ## Example
+Program execution
 ![](./example.png)
+
+UML Diagram
+![](./UML.png)
 
 ## Note
 There are no inputs required in this program. Its primary purpose is solely to demonstrate the project.
