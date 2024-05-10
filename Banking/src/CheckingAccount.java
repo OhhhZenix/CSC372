@@ -1,4 +1,6 @@
+
 class CheckingAccount extends BankAccount {
+
     private final double interestRate;
 
     public CheckingAccount(String firstName, String lastName, int accountId, double interestRate) {

@@ -1,4 +1,6 @@
+
 class BankAccount {
+
     private String firstName;
     private String lastName;
     private int accountId;
@@ -16,8 +18,9 @@ class BankAccount {
     }
 
     public void withdrawal(double amount) throws Exception {
-        if (this.balance < amount)
+        if (this.balance < amount) {
             throw new Exception("Withdrawal amount is greater than account balance.");
+        }
 
         this.balance -= amount;
     }
