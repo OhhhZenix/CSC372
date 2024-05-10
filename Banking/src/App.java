@@ -25,11 +25,7 @@ class App {
         checkingAccount.displayAccount();
         checkingAccount.deposit(2000);
         checkingAccount.displayAccount();
-        try {
-            checkingAccount.processWithdrawal(2500);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        checkingAccount.processWithdrawal(2500);
         checkingAccount.displayAccount();
     }
 }

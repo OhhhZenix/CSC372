@@ -4,7 +4,7 @@ class BankAccount {
     private String firstName;
     private String lastName;
     private int accountId;
-    private double balance;
+    protected double balance;
 
     public BankAccount(String firstName, String lastName, int accountId) {
         this.firstName = firstName;

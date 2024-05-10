@@ -8,13 +8,13 @@ class CheckingAccount extends BankAccount {
         this.interestRate = interestRate;
     }
 
-    public void processWithdrawal(double amount) throws Exception {
+    public void processWithdrawal(double amount) {
         if (amount <= this.getBalance()) {
-            this.withdrawal(amount);
+            this.balance -= amount;
             return;
         }
 
-        this.withdrawal(amount + 30);
+        this.balance -= amount + 30;
         System.out.println("Overdraft fee of $30 has been applied.");
     }
 
