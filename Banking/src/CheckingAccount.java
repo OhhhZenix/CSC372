@@ -1,12 +1,12 @@
 class CheckingAccount extends BankAccount {
-    private double interestRate;
+    private final double interestRate;
 
     public CheckingAccount(String firstName, String lastName, int accountId, double interestRate) {
         super(firstName, lastName, accountId);
         this.interestRate = interestRate;
     }
 
-    public void processWithdrawal(double amount) {
+    public void processWithdrawal(double amount) throws Exception {
         if (amount <= this.getBalance()) {
             this.withdrawal(amount);
             return;
