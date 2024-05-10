@@ -1,7 +1,5 @@
-import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
+import java.awt.Insets;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -10,12 +8,15 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class BankingApp extends JFrame implements ActionListener {
-    private BankAccount account;
+public class BankingApp extends JFrame {
+
+    private final BankAccount account;
 
     public BankingApp() {
         this.account = new BankAccount();
+    }
 
+    public void run() {
         setTitle("Banking App");
         setSize(300, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,15 +30,16 @@ public class BankingApp extends JFrame implements ActionListener {
         panel.add(welcomeLabel);
 
         JButton checkBalanceButton = new JButton("Check Balance");
-        checkBalanceButton.addActionListener(this);
+        checkBalanceButton.addActionListener(e -> checkBalanceAction());
         panel.add(checkBalanceButton);
 
         JButton depositButton = new JButton("Deposit");
-        depositButton.addActionListener(this);
+        depositButton.addActionListener(e -> depositAction());
         panel.add(depositButton);
 
         JButton withdrawButton = new JButton("Withdraw");
-        withdrawButton.addActionListener(this);
+        withdrawButton.addActionListener(e -> withdrawalAction());
+
         panel.add(withdrawButton);
 
         add(panel);
@@ -46,57 +48,51 @@ public class BankingApp extends JFrame implements ActionListener {
         setVisible(true);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        switch (e.getActionCommand()) {
-            case "Check Balance":
-                JOptionPane.showMessageDialog(this, String.format(
-                        "Your balance is $%,.2f!", this.account.getBalance()));
-                break;
-            case "Deposit":
-                String depositInput = JOptionPane.showInputDialog(this, "Enter amount to deposit:");
-                if (depositInput != null) {
-                    try {
-                        double depositAmount = Double.parseDouble(depositInput);
-                        if (depositAmount >= 0) {
-                            this.account.deposit(depositAmount);
-                            JOptionPane.showMessageDialog(this, String.format(
-                                    "$%,.2f has been deposited. Your balance is now $%,.2f!",
-                                    depositAmount,
-                                    this.account.getBalance()));
-                        } else {
-                            JOptionPane.showMessageDialog(this, "Please enter a positive amount.");
-                        }
-                    } catch (NumberFormatException ex) {
-                        JOptionPane.showMessageDialog(this, "Invalid input. Please enter a number.");
-                    }
+    private void checkBalanceAction() {
+        JOptionPane.showMessageDialog(this, String.format("Your balance is $%,.2f!", this.account.getBalance()));
+    }
+
+    private void depositAction() {
+        String depositInput = JOptionPane.showInputDialog(this, "Enter amount to deposit:");
+        if (depositInput != null) {
+            try {
+                double depositAmount = Double.parseDouble(depositInput);
+                if (depositAmount >= 0) {
+                    this.account.deposit(depositAmount);
+                    JOptionPane.showMessageDialog(this, String.format(
+                            "$%,.2f has been deposited. Your balance is now $%,.2f!",
+                            depositAmount,
+                            this.account.getBalance()));
+                } else {
+                    JOptionPane.showMessageDialog(this, "Please enter a positive amount.");
                 }
-                break;
-            case "Withdraw":
-                String withdrawInput = JOptionPane.showInputDialog(this, "Enter amount to withdraw:");
-                if (withdrawInput != null) {
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Invalid input. Please enter a number.");
+            }
+        }
+    }
+
+    private void withdrawalAction() {
+        String withdrawInput = JOptionPane.showInputDialog(this, "Enter amount to withdraw:");
+        if (withdrawInput != null) {
+            try {
+                double withdrawAmount = Double.parseDouble(withdrawInput);
+                if (withdrawAmount >= 0) {
                     try {
-                        double withdrawAmount = Double.parseDouble(withdrawInput);
-                        if (withdrawAmount >= 0) {
-                            if (withdrawAmount <= this.account.getBalance()) {
-                                this.account.withdrawal(withdrawAmount);
-                                JOptionPane.showMessageDialog(this, String.format(
-                                        "$%,.2f has been withdrawn. Your balance is now $%,.2f!",
-                                        withdrawAmount,
-                                        this.account.getBalance()));
-                            } else {
-                                JOptionPane.showMessageDialog(this, "Insufficient funds.");
-                            }
-                        } else {
-                            JOptionPane.showMessageDialog(this, "Please enter a positive amount.");
-                        }
-                    } catch (NumberFormatException ex) {
-                        JOptionPane.showMessageDialog(this, "Invalid input. Please enter a number.");
+                        this.account.withdrawal(withdrawAmount);
+                        JOptionPane.showMessageDialog(this, String.format(
+                                "$%,.2f has been withdrawn. Your balance is now $%,.2f!",
+                                withdrawAmount,
+                                this.account.getBalance()));
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(this, e.getMessage());
                     }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Please enter a positive amount.");
                 }
-                break;
-            default:
-                break;
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Invalid input. Please enter a number.");
+            }
         }
     }
 }
