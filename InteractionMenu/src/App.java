@@ -1,10 +1,10 @@
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
-
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -72,7 +72,6 @@ public class App extends Application {
             writer.flush();
             showAlert(Alert.AlertType.INFORMATION, "Success", "The output has been saved to log.txt!");
         } catch (IOException e) {
-            e.printStackTrace();
             showAlert(Alert.AlertType.ERROR, "Error", "Failed to write to log.txt: " + e.getMessage());
         }
     }
