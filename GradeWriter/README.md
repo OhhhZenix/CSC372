@@ -12,7 +12,7 @@ This project serves as the final project for CSC372. It utilizes various lessons
 
 ## Example
 Running program <br>
-![](./input_example.png)
+![](./input_example.png) <br>
 Program output <br>
 ![](./output_example.png)
 
