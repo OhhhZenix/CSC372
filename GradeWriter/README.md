@@ -11,7 +11,7 @@ This project serves as the final project for CSC372. It utilizes various lessons
 4. Enjoy the simplicity of this program.
 
 ## Example
-Running program <br>
+Program running <br>
 ![](./input_example.png) <br>
 Program output <br>
 ![](./output_example.png)
