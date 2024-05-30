@@ -25,11 +25,10 @@ public class App {
     }
 
     public static double getDoubleInput(Scanner scanner, String... messages) {
-        for (String message : messages) {
-            System.out.println(message);
-        }
-
         try {
+            for (String message : messages) {
+                System.out.println(message);
+            }
             return Double.parseDouble(scanner.nextLine());
         } catch (NullPointerException | NumberFormatException e) {
             System.out.println(INVALID_INPUT_MSG);
