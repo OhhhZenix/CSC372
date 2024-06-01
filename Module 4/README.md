@@ -1,4 +1,4 @@
-# Shapes
+# Module 4
 A simple Java program about shapes.
 
 ## Overview

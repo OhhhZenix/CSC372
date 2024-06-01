@@ -1,4 +1,4 @@
-# Interaction Menu
+# Module 3
 A simple ui app made in java.
 
 ## Overview

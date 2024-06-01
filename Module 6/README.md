@@ -1,4 +1,4 @@
-# Students
+# Module 6
 A simple Java program modeling students.
 
 ## Overview

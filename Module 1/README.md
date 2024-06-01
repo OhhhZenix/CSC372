@@ -1,4 +1,4 @@
-# Banking
+# Module 1
 A simple banking app made in Java.
 
 ## Overview

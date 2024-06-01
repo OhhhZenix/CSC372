@@ -1,4 +1,4 @@
-# Shapes
+# Module 5
 A simple Java program about recursion.
 
 ## Overview

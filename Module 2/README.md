@@ -1,4 +1,4 @@
-# Banking GUI
+# Module 2
 A simple banking gui app made in Java.
 
 ## Overview

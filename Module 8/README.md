@@ -1,4 +1,4 @@
-# Grade Writer
+# Module 8
 A simple Java program for relating to grades and students.
 
 ## Overview
