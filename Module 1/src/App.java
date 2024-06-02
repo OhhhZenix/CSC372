@@ -6,25 +6,19 @@ class App {
     account1.accountSummary();
     account1.deposit(1000);
     account1.accountSummary();
-    try {
-      account1.withdrawal(500);
-      account1.accountSummary();
-    } catch (Exception e) {
-      System.out.println(e.getMessage());
-    }
-    try {
-      account1.withdrawal(50000);
-      account1.accountSummary();
-    } catch (Exception e) {
-      System.out.println(e.getMessage());
-    }
+    account1.withdrawal(500); // regular withdrawal
+    account1.accountSummary();
+    account1.withdrawal(50000); // overdraft withdrawal
+    account1.accountSummary();
 
     // Testing CheckingAccount
     CheckingAccount checkingAccount = new CheckingAccount("Billy", "Billy", 2001, 1.5);
     checkingAccount.displayAccount();
     checkingAccount.deposit(2000);
     checkingAccount.displayAccount();
-    checkingAccount.processWithdrawal(2500);
+    checkingAccount.processWithdrawal(200); // regular withdrawal
+    checkingAccount.displayAccount();
+    checkingAccount.processWithdrawal(2500); // overdraft withdrawal
     checkingAccount.displayAccount();
   }
 }

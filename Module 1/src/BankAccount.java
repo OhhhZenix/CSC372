@@ -2,7 +2,7 @@ class BankAccount {
 
   private String firstName;
   private String lastName;
-  private int accountId;
+  protected int accountId;
   protected double balance;
 
   public BankAccount(String firstName, String lastName, int accountId) {
@@ -13,15 +13,21 @@ class BankAccount {
   }
 
   public void deposit(double amount) {
+    System.out.println(String.format("Attempting to deposit $%,.2f to %s...", amount, this.accountId));
     this.balance += amount;
+    System.out.println(String.format("Successfully deposited $%,.2f to %s!", amount, this.accountId));
   }
 
-  public void withdrawal(double amount) throws Exception {
+  public void withdrawal(double amount) {
+    System.out.println(String.format("Attempting to withdraw $%,.2f from %s...", amount, this.accountId));
+
     if (this.balance < amount) {
-      throw new Exception("Withdrawal amount is greater than account balance.");
+      System.out.println("Failed to withdraw. Withdrawal amount is greater than account balance.");
+      return;
     }
 
     this.balance -= amount;
+    System.out.println(String.format("Successfully withdrew $%,.2f from %s!", amount, this.accountId));
   }
 
   public String getFirstName() {
