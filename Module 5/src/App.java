@@ -1,16 +1,17 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class App {
 
   private static final int MAX_RECURSION = 5;
 
-  public static double getInput(Scanner scanner) {
+  public static double getInput(Scanner scanner, String prompt) {
     try {
-      System.out.println("Enter a number.");
+      System.out.println(prompt);
       return Double.parseDouble(scanner.nextLine());
     } catch (NumberFormatException e) {
       System.out.println("Invalid input. Try again!");
-      return getInput(scanner);
+      return getInput(scanner, prompt);
     }
   }
 
@@ -23,12 +24,14 @@ public class App {
 
   public static void main(String[] args) {
     double[] inputs = new double[MAX_RECURSION];
+
     try (Scanner scanner = new Scanner(System.in)) {
       for (int i = 0; i < MAX_RECURSION; i++) {
-        inputs[i] = getInput(scanner);
+        inputs[i] = getInput(scanner, String.format("Entry %s - Enter a number.", (i + 1)));
       }
     }
+
     double product = calculateInput(inputs, 0); // index is the starting point.
-    System.out.println(String.format("The product of the five numbers is: %.2f", product));
+    System.out.println(String.format("The product of the numbers %s is %,.2f.", Arrays.toString(inputs), product));
   }
 }
