@@ -23,7 +23,7 @@ public class Cylinder extends Shape {
   @Override
   public String toString() {
     return String.format(
-        "This cylinder has a surface area of %.2f and volume of %.2f.",
-        this.surfaceArea(), this.volume());
+        "A cylinder with %,.2f radius and %,.2f height has a surface area of %,.2f and volume of %,.2f.",
+        this.radius, this.height, this.surfaceArea(), this.volume());
   }
 }

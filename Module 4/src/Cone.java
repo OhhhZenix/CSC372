@@ -25,7 +25,7 @@ public class Cone extends Shape {
   @Override
   public String toString() {
     return String.format(
-        "This cone has a surface area of %.2f and volume of %.2f.",
-        this.surfaceArea(), this.volume());
+        "A cone with %,.2f radius and %,.2f height has a surface area of %,.2f and volume of %,.2f.",
+        this.radius, this.height, this.surfaceArea(), this.volume());
   }
 }
