@@ -13,14 +13,14 @@ public class App {
         studentArray.add(new Student(139, "Hannah", "369 Circle, Region"));
         studentArray.add(new Student(120, "Ian", "951 Square, Continent"));
 
-        System.out.println("Data as it is:");
+        System.out.println("Original Data Entries:");
         studentArray.printAll();
 
-        System.out.println("Data sorted by roll numbers:");
+        System.out.println("Sorted Data Entries (Sort Type = Roll Number):");
         studentArray.sortByRollNumbers();
         studentArray.printAll();
 
-        System.out.println("Data sorted by names:");
+        System.out.println("Sorted Data Entries (Sort Type = Names):");
         studentArray.sortByNames();
         studentArray.printAll();
     }

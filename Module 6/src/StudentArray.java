@@ -41,8 +41,8 @@ public class StudentArray {
     }
 
     public void printAll() {
-        for (Student student : this.students) {
-            System.out.println(student.toString());
+        for (int i = 0; i < this.students.size(); i++) {
+            System.out.println(String.format("Index %s - %s", i, this.students.get(i).toString()));
         }
     }
 }
